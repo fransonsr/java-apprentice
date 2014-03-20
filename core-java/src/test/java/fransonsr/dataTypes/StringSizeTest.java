@@ -82,7 +82,7 @@ public class StringSizeTest {
 
         StringBuilder buff = new StringBuilder();
 
-        buff.append("Estimate:\n")
+        buff.append("Estimate (LinkedList):\n")
             .append("\tfreeMemory: ").append(nf.format(freeMemory)).append(" (bytes)\n")
             .append("\tbytes per entry: ").append(nf.format(size)).append(" (bytes)\n")
             .append("\tentries: ").append(nf.format(entries)).append("\n")
