@@ -17,7 +17,7 @@ import org.junit.Test;
 
 import fransonsr.utils.MD5Hash;
 
-public class SoringTest {
+public class SortingTest {
 
     @Ignore
     @Test
@@ -52,13 +52,12 @@ public class SoringTest {
     }
 
     private void sortFile(Comparator<String> comparator) throws IOException {
-        InputStream inputStream = getClass().getResourceAsStream("/unsortedList.txt");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
         List<String> list = new LinkedList<String>();
 
         // read the list
-        try {
+        try (InputStream inputStream = getClass().getResourceAsStream("/unsortedList.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            
             String line;
             do {
                 line = reader.readLine();
@@ -67,9 +66,6 @@ public class SoringTest {
                 }
             }
             while(line != null);
-        }
-        finally {
-            reader.close();
         }
 
         // sort the list
